@@ -10,7 +10,7 @@ int main() {
 
 vector<int> generateArray(int size, bool reverseOrder) {
     vector<int> arr(size);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < size; i++) {
         if (reverseOrder) {
             arr[i] = size - i;
         } else {
@@ -19,3 +19,4 @@ vector<int> generateArray(int size, bool reverseOrder) {
     }
     return arr;
 }
+
