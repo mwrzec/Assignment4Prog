@@ -3,19 +3,7 @@
 
 using namespace std;
 
-int main() {
-    vector<int> test = generateArray(10, true);
-    insertionSort(test);
-
-    cout << "Sorted array: ";
-    for (int i = 0; i < test.size(); i++) {
-        cout << test[i] << " ";
-    }
-    cout << endl;
-
-    cout << "Insertion Sort Iteration: " << insertionCount << endl;
-    return 0;+
-}
+int insertionCount = 0;
 
 vector<int> generateArray(int size, bool reverseOrder) {
     vector<int> arr(size);
@@ -29,7 +17,7 @@ vector<int> generateArray(int size, bool reverseOrder) {
     return arr;
 }
 
-int insertionCount = 0;
+
 
 void insertionSort(vector<int> arr) {
     for (int i = 0; i < arr.size(); i++) {
@@ -42,7 +30,22 @@ void insertionSort(vector<int> arr) {
         }
         arr[j + 1] = key;
         insertionCount++;
-        }
     }
+}
+
+int main() {
+    vector<int> test = generateArray(10, true);
+    insertionSort(test);
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < test.size(); i++) {
+        cout << test[i] << " ";
+    }
+    cout << endl;
+
+
+    cout << "Insertion Sort Iteration: " << insertionCount << endl;
+    return 0;
+}
 
 
