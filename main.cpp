@@ -66,23 +66,32 @@ void mergeSort(vector<int> arr, int left, int right) {
 }
 
 int main() {
-    vector<int> test = generateArray(1000, true);
+    vector<int> sizes = {1000, 10000, 50000, 100000, 200000};
 
+    for (int size: sizes) {
+        vector<int> base = generateArray(size, true);
+        vector<int> arr1 = base;
+        vector<int> arr2 = base;
 
-    auto start = high_resolution_clock::now();
-    insertionSort(test);
-    auto stop = high_resolution_clock::now();
+        insertionCount = 0;
+        auto start = high_resolution_clock::now();
+        insertionSort(arr1);
+        auto stop = high_resolution_clock::now();
 
-    cout << "Sorted array: ";
-    for (int i = 0; i < test.size(); i++) {
-        cout << test[i] << " ";
+        mergeCount = 0;
+        start = high_resolution_clock::now();
+        mergeSort(arr2, 0, size - 1);
+        stop = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(stop - start);
+
+        cout << "Size: " << size << endl;
+        cout << "Time elapsed (Insertion Sort): " << duration.count() << " microseconds" << endl;
+        cout << "Time elapsed (MergeSort): " << duration.count() << " microseconds" << endl;
+        cout << "----------------------------------------" << endl;
     }
-    cout << endl;
 
-auto timeTaken = duration_cast<microseconds>(stop - start).count();
-    cout <<"Insertion Sort Time Taken: " << timeTaken << " Microseconds" << endl;
-    cout << "Insertion Sort Iteration: " << insertionCount << endl;
-    return 0;
-}
+
+    }
+
 
 
