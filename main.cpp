@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <chrono>
 
+using namespace std::chrono;
 using namespace std;
 
 int insertionCount = 0;
@@ -18,8 +20,7 @@ vector<int> generateArray(int size, bool reverseOrder) {
 }
 
 
-
-void insertionSort(vector<int> arr) {
+void insertionSort(vector<int>& arr) {
     for (int i = 0; i < arr.size(); i++) {
         int key = arr[i];
         int j = i - 1;
@@ -55,7 +56,7 @@ void merge(vector<int>& arr, int left, int mid, int right) {
 }
 
 void mergeSort(vector<int> arr, int left, int right) {
-    if (left >= right) {
+    if (left < right) {
         mergeCount++;
         int mid = left + (right - left) / 2;
         mergeSort(arr, left, mid);
@@ -65,8 +66,12 @@ void mergeSort(vector<int> arr, int left, int right) {
 }
 
 int main() {
-    vector<int> test = generateArray(10, true);
+    vector<int> test = generateArray(1000, true);
+
+
+    auto start = high_resolution_clock::now();
     insertionSort(test);
+    auto stop = high_resolution_clock::now();
 
     cout << "Sorted array: ";
     for (int i = 0; i < test.size(); i++) {
@@ -74,7 +79,8 @@ int main() {
     }
     cout << endl;
 
-
+auto timeTaken = duration_cast<microseconds>(stop - start).count();
+    cout <<"Insertion Sort Time Taken: " << timeTaken << " Microseconds" << endl;
     cout << "Insertion Sort Iteration: " << insertionCount << endl;
     return 0;
 }
