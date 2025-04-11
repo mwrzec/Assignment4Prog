@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
+#include "sorting_algorithms.h"
+#include "searching_algorithms.h"
 
 using namespace std::chrono;
 using namespace std;
