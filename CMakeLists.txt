@@ -8,5 +8,4 @@ add_executable(untitled1 main.cpp
         sorting_algorithms.h
         searching_algorithms.cpp
         searching_algorithms.h
-        array_tools.cpp
-        array_tools.h)
+)

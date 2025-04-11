@@ -21,6 +21,7 @@ int binarySearch(const vector<int>& arr, int key, int& count) {
 
 int linearSearch(const vector<int>& arr, int key, int& count) {
     for (int i = 0; i < arr.size(); i++) {
+        count ++;
         if (arr[i] == key) return i;
     }
     return -1;

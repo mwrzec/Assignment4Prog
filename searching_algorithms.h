@@ -8,8 +8,8 @@
 #include <vector>
 using namespace std;
 
-int binarySearch(vector<int>& arr, int key, int& count);
-int linearSearch(vector<int>& arr, int key, int& count);
+int binarySearch(const vector<int>& arr, int key, int& count);
+int linearSearch(const vector<int>& arr, int key, int& count);
 
 
 #endif //SEARCHING_ALGORITHMS_H
