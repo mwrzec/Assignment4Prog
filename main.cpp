@@ -22,29 +22,55 @@ vector<int> generateArray(int size, bool reverseOrder) {
 int main() {
     vector<int> sizes = {1000, 10000, 50000, 100000, 200000};
 
+    cout << "\nWorst case (In reverse Order):\n ---------------------------------------";
+
     for (int size: sizes) {
         vector<int> base = generateArray(size, true);
         vector<int> arr1 = base;
         vector<int> arr2 = base;
 
         insertionCount = 0;
-        auto start = high_resolution_clock::now();
+        auto start1 = high_resolution_clock::now();
         insertionSort(arr1);
-        auto stop = high_resolution_clock::now();
+        auto stop1 = high_resolution_clock::now();
+        auto duration1 = duration_cast<microseconds>(stop1 - start1);
 
         mergeCount = 0;
-        start = high_resolution_clock::now();
+        auto start2 = high_resolution_clock::now();
         mergeSort(arr2, 0, size - 1);
-        stop = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(stop - start);
+        auto stop2 = high_resolution_clock::now();
+        auto duration2 = duration_cast<microseconds>(stop2 - start2);
 
-        cout << "Size: " << size << endl;
-        cout << "Time elapsed (Insertion Sort): " << duration.count() << " microseconds" << endl;
-        cout << "Time elapsed (MergeSort): " << duration.count() << " microseconds" << endl;
+        cout << "\nSize: " << size << endl;
+        cout << "Time elapsed (Insertion Sort): " << duration1.count() << " microseconds" << endl;
+        cout << "Time elapsed (MergeSort): " << duration2.count() << " microseconds" << endl;
         cout << "----------------------------------------" << endl;
     }
 
+    cout <<"\n Best Case (Sorted):\n ----------------------------------------";
+    for (int size: sizes) {
+        vector<int> base = generateArray(size, false);
+        vector<int> arr1 = base;
+        vector<int> arr2 = base;
 
+        insertionCount = 0;
+        auto start1 = high_resolution_clock::now();
+        insertionSort(arr1);
+        auto stop1 = high_resolution_clock::now();
+        auto duration1 = duration_cast<microseconds>(stop1 - start1);
+
+        mergeCount = 0;
+        auto start2 = high_resolution_clock::now();
+        mergeSort(arr2, 0, size - 1);
+        auto stop2 = high_resolution_clock::now();
+        auto duration2 = duration_cast<microseconds>(stop2 - start2);
+
+        cout << "\nSize: " << size << endl;
+        cout << "Insertion Sort: " << duration1.count() << " microseconds" << endl;
+        cout << "Merge Sort: " << duration2.count() << " microseconds" << endl;
+
+    }
+    return 0;
     }
 
 
