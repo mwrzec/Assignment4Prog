@@ -4,8 +4,17 @@
 using namespace std;
 
 int main() {
-    cout << "Starting Algorithm Analysis..." << endl;
-    return 0;
+    vector<int> test = generateArray(10, true);
+    insertionSort(test);
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < test.size(); i++) {
+        cout << test[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Insertion Sort Iteration: " << insertionCount << endl;
+    return 0;+
 }
 
 vector<int> generateArray(int size, bool reverseOrder) {
