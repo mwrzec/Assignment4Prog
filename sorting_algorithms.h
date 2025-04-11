@@ -5,12 +5,15 @@
 #ifndef SORTING_ALGORITHMS_H
 #define SORTING_ALGORITHMS_H
 
+#include <vector>
+using namespace std;
 
+extern int insertionCount;
+extern int mergeCount;
 
-class sorting_algorithms {
-
-};
-
+void insertionSort(vector<int>& arr);
+void mergeSort(vector<int>& arr, int left, int right);
+void merge(vector<int>& arr, int left, int mid, int right);
 
 
 #endif //SORTING_ALGORITHMS_H
