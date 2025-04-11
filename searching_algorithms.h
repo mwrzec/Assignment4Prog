@@ -5,12 +5,11 @@
 #ifndef SEARCHING_ALGORITHMS_H
 #define SEARCHING_ALGORITHMS_H
 
+#include <vector>
+using namespace std;
 
-
-class searching_algorithms {
-
-};
-
+int binarySearch(vector<int>& arr, int key, int& count);
+int linearSearch(vector<int>& arr, int key, int& count);
 
 
 #endif //SEARCHING_ALGORITHMS_H
