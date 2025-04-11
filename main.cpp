@@ -20,3 +20,20 @@ vector<int> generateArray(int size, bool reverseOrder) {
     return arr;
 }
 
+int insertionCount = 0;
+
+void insertionSort(vector<int> arr) {
+    for (int i = 0; i < arr.size(); i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+            insertionCount++;
+        }
+        arr[j + 1] = key;
+        insertionCount++;
+        }
+    }
+
+
