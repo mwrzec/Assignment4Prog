@@ -42,8 +42,8 @@ int main() {
         auto duration2 = duration_cast<microseconds>(stop2 - start2);
 
         cout << "\nSize: " << size << endl;
-        cout << "Time elapsed (Insertion Sort): " << duration1.count() << " microseconds" << endl;
-        cout << "Time elapsed (MergeSort): " << duration2.count() << " microseconds" << endl;
+        cout << "Time elapsed (Insertion Sort): " << duration1.count() <<" microseconds." << " Iterations:" << insertionCount << endl;
+        cout << "Time elapsed (MergeSort): " << duration2.count() <<" microseconds." << " Iterations:" << mergeCount << endl;
         cout << "----------------------------------------" << endl;
     }
 
@@ -66,9 +66,35 @@ int main() {
         auto duration2 = duration_cast<microseconds>(stop2 - start2);
 
         cout << "\nSize: " << size << endl;
-        cout << "Insertion Sort: " << duration1.count() << " microseconds" << endl;
-        cout << "Merge Sort: " << duration2.count() << " microseconds" << endl;
+        cout << "Time Elapsed (Insertion Sort): " << duration1.count() <<" microseconds."<< " Iterations:"<< insertionCount << endl;
+        cout << "Time Elapsed (Merge Sort): " << duration2.count() <<"m icroseconds."<< " Iterations:"<<mergeCount << endl;
 
+
+
+    }
+    cout << "\nSearch Algorithms (Linear & Binary):\n";
+
+    for (int size: sizes) {
+        vector<int> arr(size);
+        for (int i = 0; i < size; i++) arr[i] = i;
+
+        int key = -1;
+        int linCount = 0;
+        int binCount = 0;
+
+        auto start1 = high_resolution_clock::now();
+        linearSearch(arr, key, linCount);
+        auto stop1 = high_resolution_clock::now();
+        auto duration1 = duration_cast<microseconds>(stop1 - start1);
+
+        auto start2 = high_resolution_clock::now();
+        binarySearch(arr, key, binCount);
+        auto stop2 = high_resolution_clock::now();
+        auto duration2 = duration_cast<microseconds>(stop2 - start2);
+
+        cout << "\nSize: " << size << endl;
+        cout << "Time Elapsed (Linear Search): " << duration1.count() <<" microseconds."<< " Iterations:" <<linCount<< endl;
+        cout << "Time Elapsed (Binary Search): " << duration2.count() <<" microseconds."<< " Iterations:" <<binCount<< endl;
     }
     return 0;
     }

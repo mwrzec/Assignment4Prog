@@ -8,8 +8,8 @@
 #include <vector>
 using namespace std;
 
-extern int insertionCount;
-extern int mergeCount;
+extern long long insertionCount;
+extern long long mergeCount;
 
 void insertionSort(vector<int>& arr);
 void mergeSort(vector<int>& arr, int left, int right);

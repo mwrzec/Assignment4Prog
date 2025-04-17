@@ -4,8 +4,8 @@
 
 #include "sorting_algorithms.h"
 
-int insertionCount = 0;
-int mergeCount = 0;
+long long insertionCount = 0;
+long long mergeCount = 0;
 
 void insertionSort(vector<int>& arr) {
     for (int i = 0; i < arr.size(); i++) {
